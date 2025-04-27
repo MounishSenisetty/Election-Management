@@ -5,7 +5,7 @@ import Button from '../../components/common/Button'
 import Modal from '../../components/common/Modal'
 import Input from '../../components/common/Input'
 import { useForm } from 'react-hook-form'
-import api from '../../services/api'
+// import api from '../../services/api'
 
 const Candidates = () => {
   const [candidates, setCandidates] = useState([])
