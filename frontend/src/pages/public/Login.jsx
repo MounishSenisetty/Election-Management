@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { Link,useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { useAuth } from '../../contexts/AuthContext'
 import Button from '../../components/common/Button'
 import Input from '../../components/common/Input'
@@ -9,7 +9,6 @@ const Login = () => {
   const { login } = useAuth()
   const [loading, setLoading] = useState(false)
   const { register, handleSubmit, formState: { errors } } = useForm()
-  const navigate=useNavigate();
   const onSubmit = async (data) => {
     setLoading(true);
     const payload = {
@@ -25,7 +24,7 @@ const Login = () => {
       localStorage.setItem("userId", response.data.user.linkedId);
       
       // Redirect based on the user's role
-      window.location.href = `${response.data.user.role}`;
+      window.location.href = `/${response.data.user.role}`;
       
       // If you want to store the token for later use (e.g., in localStorage or as a global state):
       localStorage.setItem("token", response.data.token);
@@ -111,7 +110,7 @@ const Login = () => {
 
               <div className="text-sm">
                 <Link to="/signup" className="font-medium text-primary-600 hover:text-primary-500">
-                  Don't have an account? Sign up
+                  Don&apos;t have an account? Sign up
                 </Link>
               </div>
             </div>
